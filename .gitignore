@@ -1,0 +1,17 @@
+# Env and credentials
+.env
+.gcp-env
+gcp-service-account/key.json
+
+# Local artifacts
+*.log
+*.tmp
+*.swp
+
+# IDE/editor
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
