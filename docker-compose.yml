@@ -28,7 +28,7 @@ services:
       - PROMETHEUS_DOMAIN=${PROMETHEUS_DOMAIN}
       - ALERTMANAGER_DOMAIN=${ALERTMANAGER_DOMAIN}
       - TEMPO_DOMAIN=${TEMPO_DOMAIN}
-    command: /bin/sh -c "envsubst < /etc/nginx/nginx.conf > /tmp/nginx.conf && exec nginx -g 'daemon off;' -c /tmp/nginx.conf"
+    command: /bin/sh -c "envsubst '$$GRAFANA_DOMAIN $$ZABBIX_DOMAIN $$PROMETHEUS_DOMAIN $$ALERTMANAGER_DOMAIN $$TEMPO_DOMAIN' < /etc/nginx/nginx.conf > /tmp/nginx.conf && exec nginx -g 'daemon off;' -c /tmp/nginx.conf"
     networks:
       - observability
     depends_on:
