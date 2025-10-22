@@ -1,5 +1,3 @@
-version: "3.8"
-
 networks:
   observability:
     driver: bridge
@@ -45,7 +43,7 @@ services:
       - observability
 
   grafana:
-    image: grafana/grafana:11.2.0
+    image: grafana/grafana:11.3.0
     container_name: grafana
     restart: unless-stopped
     environment:
@@ -154,7 +152,7 @@ services:
       - observability
 
   zabbix-server:
-    image: zabbix/zabbix-server-pgsql:alpine-7.0-latest
+    image: zabbix/zabbix-server-pgsql:alpine-7.4-latest
     container_name: zabbix-server
     restart: unless-stopped
     environment:
@@ -172,7 +170,7 @@ services:
       - observability
 
   zabbix-web:
-    image: zabbix/zabbix-web-nginx-pgsql:alpine-7.0-latest
+    image: zabbix/zabbix-web-nginx-pgsql:alpine-7.4-latest
     container_name: zabbix-web
     restart: unless-stopped
     environment:
